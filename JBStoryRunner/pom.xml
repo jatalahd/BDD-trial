@@ -1,0 +1,221 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jb</groupId>
+    <artifactId>JBTester</artifactId>
+    <version>1.0</version>
+    <relativePath>../</relativePath>
+  </parent>
+
+  <groupId>org.jb</groupId>
+  <artifactId>JBStoryRunner</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>JBStoryRunner</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jbehave.core.version>3.9</jbehave.core.version>
+    <jbehave.site.version>3.1.1</jbehave.site.version>
+    <ignore.failures>true</ignore.failures>
+    <meta.filter>-skip</meta.filter>
+    <threads>1</threads>
+    <skip>false</skip>
+    <stories>**/JBStoryRunner.java</stories>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jb</groupId>
+      <artifactId>JBExampleSteps</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jb</groupId>
+      <artifactId>JBWebDriverSteps</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>2.39.0</version>
+    </dependency> 
+
+    <dependency>
+      <groupId>org.jbehave</groupId>
+      <artifactId>jbehave-core</artifactId>
+      <version>${jbehave.core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jbehave</groupId>
+      <artifactId>jbehave-core</artifactId>
+      <version>${jbehave.core.version}</version>
+      <classifier>resources</classifier>
+      <type>zip</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jbehave.site</groupId>
+      <artifactId>jbehave-site-resources</artifactId>
+      <version>${jbehave.site.version}</version>
+      <type>zip</type>
+    </dependency>
+  </dependencies>
+      
+  <build>
+  <defaultGoal>clean package</defaultGoal>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>unpack-resources-core</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/jbehave/view</outputDirectory>
+              <overWriteReleases>true</overWriteReleases>
+              <overWriteSnapshots>true</overWriteSnapshots>
+              <excludes>**/*.class</excludes>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.jbehave</groupId>
+                  <artifactId>jbehave-navigator</artifactId>
+                  <version>${jbehave.core.version}</version>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jbehave</groupId>
+        <artifactId>jbehave-maven-plugin</artifactId>
+        <version>${jbehave.core.version}</version>
+        <executions>
+          <execution>
+            <id>unpack-view-resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>unpack-view-resources</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>embeddable-stories</id>
+            <phase>integration-test</phase>
+            <configuration>
+              <includes>
+                <include>${stories}</include>
+              </includes>
+              <excludes />
+              <ignoreFailureInStories>${ignore.failures}</ignoreFailureInStories>
+              <ignoreFailureInView>${ignore.failures}</ignoreFailureInView>
+              <threads>${threads}</threads>
+              <skip>${skip}</skip>
+              <metaFilters>
+                <metaFilter>${meta.filter}</metaFilter>
+              </metaFilters>
+              <executorsClass>org.jbehave.core.embedder.executors.SameThreadExecutors</executorsClass>
+            </configuration>
+            <goals>
+              <goal>run-stories-as-embeddables</goal>
+            </goals>
+          </execution>
+          <!--execution>
+            <id>map-stories</id>
+            <phase>integration-test</phase>
+            <configuration>
+              <includes>
+                <include>**/*Maps.java</include>
+              </includes>
+              <metaFilters>
+                <metaFilter>${meta.filter}</metaFilter>
+              </metaFilters>
+            </configuration>
+            <goals>
+              <goal>map-stories-as-embeddables</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report-stepdocs</id>
+            <phase>integration-test</phase>
+            <configuration>
+              <includes>
+                <include>${stories}</include>
+              </includes>
+            </configuration>
+            <goals>
+              <goal>report-stepdocs-as-embeddables</goal>
+            </goals>
+          </execution-->
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>11.0.1</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>org.jb.JBStoryRunner</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+              <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+               </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
+    <resources>
+      <!--resource>
+        <directory>${basedir}/src/main/resources</directory>
+        <filtering>false</filtering>
+      </resource-->
+      <resource>
+        <directory>${basedir}/src/main/stories</directory>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+
+  </build>
+</project>
