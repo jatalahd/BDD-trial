@@ -50,7 +50,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class JBWebDriverSteps {
+public class JBWebDriverSteps extends JBCommonSteps {
 
     private static WebDriver drv;
     private int elementTimeout = 30;

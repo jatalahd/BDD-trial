@@ -12,10 +12,10 @@ import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.BeforeStory;
 import org.jbehave.core.annotations.ScenarioType;
  
-public class JBExampleSteps {
-    int x;
-    int strLen = 0;
-    String str;
+public class JBExampleSteps extends JBCommonSteps {
+    private int x;
+    private int strLen = 0;
+    private String str;
 
     @BeforeScenario
     public void beforeEachScenario(@Named("steps") String steps) {
@@ -79,32 +79,33 @@ public class JBExampleSteps {
 
     @Given("a string $str")
     public void givenStr(String strng) {
-        str = strng;
-        strLen = str.length();
+        this.str = strng;
+        this.strLen = this.str.length();
     }
 
     @Then("string length should equal $value")
     public void strLengthShouldBe(int value) {
-        if (value != strLen)
-            throw new RuntimeException("strLen is " + strLen + ", but should be " + value);
+        if (value != this.strLen)
+            throw new RuntimeException("strLen is " + this.strLen + ", but should be " + value);
     }
  
     @Given("a variable x with value $value")
     public void givenXValue(int value) {
-        x = value;
+        this.x = value;
     }
  
     @When("I multiply x by $value")
     public void whenImultiplyXBy(int value) {
-        x = x * value;
+        this.x = this.x * value;
     }
  
     @Then("x should equal $value")
     public void thenXshouldBe(int value) {
-        if (value != x)
-            throw new RuntimeException("x is " + x + ", but should be " + value);
+        if (value != this.x)
+            throw new RuntimeException("x is " + this.x + ", but should be " + value);
     }
 
+    // NOTE! Don't use numbers in variable names nor commas in the Gherkin phrase!
     @When("a variable with $valuea is set and multiplied with $valueb the result is $valuec") // used in normal parameter matching
     @Alias("a variable with <valuea> is set and multiplied with <valueb> the result is <valuec>") // used in normal parameter matching
     @Composite(steps = { "Given a variable x with value <valuea>",

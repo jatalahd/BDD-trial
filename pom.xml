@@ -8,6 +8,7 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>JBCommonSteps</module>
     <module>JBExampleSteps</module>
     <module>JBWebDriverSteps</module>
     <module>JBStoryRunner</module>

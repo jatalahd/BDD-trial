@@ -16,6 +16,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.jb</groupId>
+      <artifactId>JBCommonSteps</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.jbehave</groupId>
       <artifactId>jbehave-core</artifactId>
       <version>3.9</version>

@@ -58,5 +58,8 @@ Given a variable x with value 0
 
 
 Scenario:  A scenario is a collection of executable steps of different type
- 
-Given a variable x with value 0
+
+Given a global variable testi1 with value muuttuja1
+Given a global variable testi2 with value muuttuja2
+Given a global variable testi3 with value muuttuja3
+Given a global variable testi4 with value muuttuja4 

@@ -23,3 +23,10 @@ Meta:
  
 Given a variable x with value 0
 
+
+Scenario:  A scenario is a collection of executable steps of different type
+
+When global variable map is printed iteratively
+Then print the value of global variable testi2
+
+

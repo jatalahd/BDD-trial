@@ -31,6 +31,12 @@
   <dependencies>
     <dependency>
       <groupId>org.jb</groupId>
+      <artifactId>JBCommonSteps</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jb</groupId>
       <artifactId>JBExampleSteps</artifactId>
       <version>1.0</version>
     </dependency>

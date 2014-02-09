@@ -3,8 +3,7 @@ package org.jb;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.runner.RunWith;
- 
-import org.jb.JBExampleSteps;
+
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.io.CodeLocations;
 import org.jbehave.core.junit.JUnitStories;
@@ -42,7 +41,7 @@ public class JBStoryRunner extends JUnitStories {
  
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new JBExampleSteps(), new JBWebDriverSteps());
+        return new InstanceStepsFactory(configuration(), new JBCommonSteps(), new JBExampleSteps(), new JBWebDriverSteps());
     }
 
     @Override

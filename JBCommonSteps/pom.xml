@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.jb</groupId>
-  <artifactId>JBExampleSteps</artifactId>
+  <artifactId>JBCommonSteps</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>JBExampleSteps</name>
+  <name>JBCommonSteps</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -15,12 +15,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>org.jb</groupId>
-      <artifactId>JBCommonSteps</artifactId>
-      <version>1.0</version>
-    </dependency>
-
     <dependency>
       <groupId>org.jbehave</groupId>
       <artifactId>jbehave-core</artifactId>
@@ -46,30 +40,6 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-
-      <!--plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>2.5.1</version>
-        <executions>
-            <execution>
-                <id>install-library</id>
-                <phase>install</phase>
-                <goals>
-                    <goal>install-file</goal>
-                </goals>
-                <configuration>
-                  <file>./target/JBExampleSteps-1.0.jar</file>
-                  <groupId>org.jb</groupId>
-                  <artifactId>JBExampleSteps</artifactId>
-                  <version>1.0</version>
-                  <packaging>jar</packaging>
-                  <generatePom>false</generatePom>
-                </configuration>
-            </execution>
-        </executions>
-      </plugin-->
-
     </plugins>
   </build>
 </project>
