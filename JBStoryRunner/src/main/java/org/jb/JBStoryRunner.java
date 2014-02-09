@@ -24,7 +24,7 @@ public class JBStoryRunner extends JUnitStories {
  
     public JBStoryRunner() {
         super();
-        configuredEmbedder().useMetaFilters(Arrays.asList("-skip"));
+        configuredEmbedder().useMetaFilters(Arrays.asList("+executeMe", "-skip"));
     }
 
     @Override

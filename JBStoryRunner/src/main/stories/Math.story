@@ -18,6 +18,40 @@ Examples:
 Scenario:  A scenario is a collection of executable steps of different type
 
 Meta:
+@executeMe
+
+Given a variable x with value <val>
+
+Examples:
+|Meta:     |val|
+|@notMe    |1  |
+|@notMe    |2  |
+|@executeMe|3  |
+
+
+Scenario:  A scenario is a collection of executable steps of different type
+
+
+When a variable with 2 is set and multiplied with 3 the result is 6
+
+
+Scenario:  A scenario is a collection of executable steps of different type
+
+Meta:
+@executeMe
+
+When a variable with <val> is set and multiplied with <mul> the result is <res>
+
+Examples:
+|Meta:     |val|mul|res|
+|          |1  |1  |1  |
+|          |2  |2  |4  |
+|@executeMe|3  |3  |9  |
+
+
+Scenario:  A scenario is a collection of executable steps of different type
+
+Meta:
 @skip
  
 Given a variable x with value 0

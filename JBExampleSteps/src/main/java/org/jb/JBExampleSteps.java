@@ -4,6 +4,8 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.Alias;
+import org.jbehave.core.annotations.Composite;
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.AfterStory;
 import org.jbehave.core.annotations.BeforeScenario;
@@ -75,31 +77,38 @@ public class JBExampleSteps {
         System.out.println("After Basic Given Story ...");
     }
 
-	@Given("a string '$str'")
-	public void givenStr(@Named("str") String value) {
-		str = value;
-		strLen = str.length();
-	}
+    @Given("a string $str")
+    public void givenStr(String strng) {
+        str = strng;
+        strLen = str.length();
+    }
 
-	@Then("string length should equal '$value'")
-	public void strLengthShouldBe(@Named("value") int value) {
-		if (value != strLen)
-			throw new RuntimeException("strLen is " + strLen + ", but should be " + value);
-	}
+    @Then("string length should equal $value")
+    public void strLengthShouldBe(int value) {
+        if (value != strLen)
+            throw new RuntimeException("strLen is " + strLen + ", but should be " + value);
+    }
  
-	@Given("a variable x with value $value")
-	public void givenXValue(@Named("value") int value) {
-		x = value;
-	}
+    @Given("a variable x with value $value")
+    public void givenXValue(int value) {
+        x = value;
+    }
  
-	@When("I multiply x by $value")
-	public void whenImultiplyXBy(@Named("value") int value) {
-		x = x * value;
-	}
+    @When("I multiply x by $value")
+    public void whenImultiplyXBy(int value) {
+        x = x * value;
+    }
  
-	@Then("x should equal $value")
-	public void thenXshouldBe(@Named("value") int value) {
-		if (value != x)
-			throw new RuntimeException("x is " + x + ", but should be " + value);
-	}
+    @Then("x should equal $value")
+    public void thenXshouldBe(int value) {
+        if (value != x)
+            throw new RuntimeException("x is " + x + ", but should be " + value);
+    }
+
+    @When("a variable with $valuea is set and multiplied with $valueb the result is $valuec") // used in normal parameter matching
+    @Alias("a variable with <valuea> is set and multiplied with <valueb> the result is <valuec>") // used in normal parameter matching
+    @Composite(steps = { "Given a variable x with value <valuea>",
+                         "When I multiply x by <valueb>",
+                         "Then x should equal <valuec>" }) 
+    public void aCompositeStep(@Named("valuea") int valuea, @Named("valueb") int valueb, @Named("valuec") int valuec) {}
 }
