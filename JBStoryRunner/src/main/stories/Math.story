@@ -1,5 +1,6 @@
 Meta:
 @steps BasicSteps
+@cheese
 
 GivenStories: Given.story
 
@@ -66,3 +67,4 @@ Given a global variable testi2 with value muuttuja2
 Given a global variable testi3 with value muuttuja3
 Given a global variable testi4 with value muuttuja4 
 Given replace a variable with its value in Some String with testi2 occurring testi2testi2 several testi3 times
+When global variable map is printed iteratively
