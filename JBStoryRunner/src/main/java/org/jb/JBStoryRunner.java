@@ -1,6 +1,6 @@
 package org.jb;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.runner.RunWith;
 
@@ -23,7 +23,19 @@ public class JBStoryRunner extends JUnitStories {
  
     public JBStoryRunner() {
         super();
-        configuredEmbedder().useMetaFilters(Arrays.asList("+executeMe", "-skip"));
+        configuredEmbedder().useMetaFilters(getMetaTags());
+    }
+
+    private List<String> getMetaTags() {
+        List<String> arr = new ArrayList<String>();
+        arr.add("givenStory");
+        arr.add("-Skip");
+        try {
+            for (String s : System.getProperty("meta").split(" ")) {
+                arr.add(s);
+            }
+        } catch (NullPointerException e) {/*do nothing*/}
+        return arr;
     }
 
     @Override
