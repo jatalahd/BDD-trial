@@ -91,6 +91,7 @@ public class JBExampleSteps extends JBCommonSteps {
  
     @Given("a variable x with value $value")
     public void givenXValue(int value) {
+        System.out.println(""+value);
         this.x = value;
     }
  

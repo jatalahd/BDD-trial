@@ -29,11 +29,11 @@ public class JBStoryRunner extends JUnitStories {
     private List<String> getMetaTags() {
         List<String> arr = new ArrayList<String>();
         arr.add("-skip");
-        try {
-            String metas = System.getProperty("meta");
-            for (String s : metas.split(" ")) { arr.add(s); }
-            if (metas.contains("+")) { arr.add("+givenStory");}
-        } catch (NullPointerException e) {/*do nothing*/}
+        String s = "";
+        if (System.getProperty("meta") != null) {
+            s = System.getProperty("meta");
+        }
+        arr.add(s.contains("+") ? s + " +givenStory" : s);
         return arr;
     }
 
