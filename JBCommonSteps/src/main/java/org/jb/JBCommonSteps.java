@@ -1,16 +1,10 @@
 package org.jb;
 
 import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.jbehave.core.annotations.Alias;
-import org.jbehave.core.annotations.Composite;
 
 import java.util.TreeMap;
-
-import groovy.lang.Binding;
-import groovy.lang.GroovyShell;
  
 public class JBCommonSteps {
 
@@ -48,13 +42,5 @@ public class JBCommonSteps {
         for (String item : varMap.descendingKeySet()) {
             System.out.println(varMap.get(item));
         }
-    }
-
-    @When("Groovy script $script is executed")
-    public Object executeGroovyScript(final String scriptStr) {
-        Binding binding = new Binding();
-        binding.setVariable("commonSteps", this);
-        GroovyShell shell = new GroovyShell(binding);
-        return shell.evaluate(scriptStr);
     }
 }

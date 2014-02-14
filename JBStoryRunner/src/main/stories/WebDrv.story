@@ -28,5 +28,6 @@ Scenario:  A scenario is a collection of executable steps of different type
 
 When global variable map is printed iteratively
 Then print the value of global variable testi2
+When Groovy script exampleSteps.givenXValue(100); is executed
 
 
