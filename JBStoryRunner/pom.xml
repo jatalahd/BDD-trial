@@ -42,7 +42,7 @@
 
     <dependency>
       <groupId>org.jb</groupId>
-      <artifactId>JBWebDriverSteps-with-dependencies</artifactId>
+      <artifactId>JBWebDriverSteps</artifactId>
       <version>1.0</version>
     </dependency>
 
