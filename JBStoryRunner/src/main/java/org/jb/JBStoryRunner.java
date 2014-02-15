@@ -2,6 +2,7 @@ package org.jb;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import org.junit.runner.RunWith;
 
 import org.jbehave.core.io.StoryFinder;
@@ -25,10 +26,13 @@ public class JBStoryRunner extends JUnitStories {
 
     @Override
     public Configuration configuration() {
+        Properties viewResources = new Properties();
+        viewResources.put("decorateNonHtml", "true");
         Configuration config = new MostUsefulConfiguration();
         config.useParameterControls(new ParameterControls().useDelimiterNamedParameters(true));
         config.useStoryReporterBuilder( new StoryReporterBuilder().withDefaultFormats()
-                                                  .withFormats(Format.HTML,Format.TXT)
+                                                  .withFormats(Format.CONSOLE, Format.HTML, Format.XML, Format.STATS)
+                                                  .withViewResources(viewResources)
                                                   .withFailureTrace(true)
                                                   .withFailureTraceCompression(true)
                                                   /*.withRelativeDirectory("my-output")*/

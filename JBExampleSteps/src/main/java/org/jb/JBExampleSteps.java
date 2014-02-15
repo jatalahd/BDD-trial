@@ -18,9 +18,11 @@ public class JBExampleSteps extends JBCommonSteps {
     private String str;
 
     @BeforeScenario
-    public void beforeEachScenario(@Named("steps") String steps) {
-        if (steps.contains("BasicSteps"))  
-        System.out.println("Before Basic Scenario ...");
+    public void beforeEachScenario(@Named("steps") String steps, @Named("scenario") String title) {
+        if (steps.contains("BasicSteps")) { 
+            System.out.println("Before Basic Scenario ...");
+        	System.out.println(""+title);
+        }
     }
  
     @BeforeScenario(uponType=ScenarioType.EXAMPLE)

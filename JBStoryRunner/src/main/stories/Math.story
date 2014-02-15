@@ -4,7 +4,7 @@ Meta:
 
 GivenStories: Given.story
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing Examples table with author meta 
 
 Meta:
 @author NudelHead
@@ -18,7 +18,7 @@ Examples:
 |3  |
 
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing meta tags inside Examples table
 
 Meta:
 @executeMe
@@ -32,13 +32,13 @@ Examples:
 |@executeMe|3  |
 
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing a composite
 
 
 When a variable with 2 is set and multiplied with 3 the result is 6
 
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing a composite with Examples table and meta
 
 Meta:
 @executeMe
@@ -52,7 +52,7 @@ Examples:
 |@executeMe|3  |3  |9  |
 
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing skip meta
 
 Meta:
 @skip
@@ -60,7 +60,7 @@ Meta:
 Given a variable x with value 0
 
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing variable settings in common class
 
 Given a global variable testi1 with value muuttuja1
 Given a global variable testi2 with value muuttuja2

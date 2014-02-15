@@ -1,7 +1,7 @@
 Meta:
 @givenStory
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  This is a given story
 
 Given a global variable testi9 with value muuttuja9
 

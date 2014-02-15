@@ -20,7 +20,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jbehave.core.version>3.9</jbehave.core.version>
-    <jbehave.site.version>3.1.1</jbehave.site.version>
     <ignore.failures>true</ignore.failures>
     <meta.filter>-skip</meta.filter>
     <threads>1</threads>
@@ -70,13 +69,6 @@
       <artifactId>jbehave-core</artifactId>
       <version>${jbehave.core.version}</version>
       <classifier>resources</classifier>
-      <type>zip</type>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jbehave.site</groupId>
-      <artifactId>jbehave-site-resources</artifactId>
-      <version>${jbehave.site.version}</version>
       <type>zip</type>
     </dependency>
   </dependencies>

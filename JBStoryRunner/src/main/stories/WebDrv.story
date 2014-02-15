@@ -1,7 +1,7 @@
 Meta:
 @steps WebSteps
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing basic webSteps
 
 Meta:
 @author NoodleHead
@@ -16,7 +16,7 @@ When web element xpath://div[@id='name-form-element']/descendant::span[@id='firs
 When text Jamppa is written to field FirstName
 When all browsers are closed
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing skip meta in webSteps
 
 Meta:
 @skip
@@ -24,10 +24,13 @@ Meta:
 Given a variable x with value 0
 
 
-Scenario:  A scenario is a collection of executable steps of different type
+Scenario:  Testing variables and groovy 
 
+When Groovy script commonSteps.addVariable("groovy","groovyVal"); is executed
 When global variable map is printed iteratively
 Then print the value of global variable testi2
 When Groovy script exampleSteps.givenXValue(100); is executed
+When Groovy script exampleSteps.givenXValue(50); is executed
+
 
 
