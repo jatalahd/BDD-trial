@@ -91,6 +91,11 @@ public class JBExampleSteps extends JBCommonSteps {
             throw new RuntimeException("strLen is " + this.strLen + ", but should be " + value);
     }
  
+    /**
+     * Initializes an internal integer.
+     * 
+     * @param value
+     */
     @Given("a variable x with value $value")
     public void givenXValue(int value) {
         System.out.println(""+value);

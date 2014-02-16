@@ -19,12 +19,14 @@
       <groupId>org.jb</groupId>
       <artifactId>JBCommonSteps</artifactId>
       <version>1.0</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.jbehave</groupId>
       <artifactId>jbehave-core</artifactId>
       <version>3.9</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -55,11 +57,6 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
-          <archive>
-            <manifest>
-              <mainClass>JBWebDriverSteps</mainClass>
-            </manifest>
-          </archive>
         </configuration>
         <executions>
           <execution>
