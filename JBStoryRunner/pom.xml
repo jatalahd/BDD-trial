@@ -53,6 +53,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.jb</groupId>
+      <artifactId>stories</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.jbehave</groupId>
       <artifactId>jbehave-core</artifactId>
       <version>${jbehave.core.version}</version>

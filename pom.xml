@@ -12,6 +12,7 @@
     <module>JBExampleSteps</module>
     <module>JBWebDriverSteps</module>
     <module>JBGroovySteps</module>
+    <module>stories</module>
     <module>JBStoryRunner</module>
   </modules>
 </project>
